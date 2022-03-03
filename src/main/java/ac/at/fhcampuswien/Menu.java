@@ -2,6 +2,10 @@ package ac.at.fhcampuswien;
 
 public class Menu {
 
+    private AppController controller;
+    private static String INVALID_INPUT_MESSAGE;
+    private static String EXIT_MESSAGE;
+
     public void start(){}
 
     private void handleInput(String input){}
