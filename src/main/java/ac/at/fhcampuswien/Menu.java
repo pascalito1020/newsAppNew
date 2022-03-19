@@ -1,51 +1,43 @@
 package ac.at.fhcampuswien;
 
+import java.util.Objects;
 import java.util.Scanner;
 
 public class Menu {
 
     private AppController controller;
-    private static String INVALID_INPUT_MESSAGE;
-    private static String EXIT_MESSAGE;
-
-    char input;
-    Scanner scanner = new Scanner(System.in);
+    private static String INVALID_INPUT_MESSAGE = "Invalid input! :-(";
+    private static String EXIT_MESSAGE = "Bye Bye ! :-(";
 
     public void start(){
 
-        for(int i = 1; i > 0; i++) {
+        String input = null;
+        Scanner scanner = new Scanner(System.in);
+
+        while(!Objects.equals(input, "q")){
             printMenu();
-            input = scanner.next().charAt(0);
+            input = scanner.next();
             handleInput(input);
-            switch (input) {
-                case 'a' -> getTopHeadlinesAustria();
-                case 'b' -> getAllNewsBitcoin();
-                case 'y' -> getArticleCount();
-                case 'q' -> {
-                    printExitMessage();
-                    System.exit(0);
-                }
-            }
+
         }
+
     }
 
-    private void handleInput(char input){
+    private void handleInput(String input){
 
-        if(input == 'a') {
-            System.out.println("Nice!"); // Platzhalter (Wenn input a ist, wird was gemacht...)
-        }else if(input == 'b') {
-            System.out.println("Nice!");
-        }
-        else if(input == 'q') {
-            System.out.println("");
-        }
-        else if(input == 'y') {
-            System.out.println("Nice!");
+        if(Objects.equals(input, "a")) {
+            getTopHeadlinesAustria();
+        }else if(Objects.equals(input, "b")) {
+            getAllNewsBitcoin();
+        }else if(Objects.equals(input, "y")) {
+            getArticleCount();
+        }else if(Objects.equals(input, "q")){
+            printExitMessage();
+            System.exit(0);
         }else
             printvalidInputMessage();
 
     }
-
     private void getArticleCount(/**AppController.ctrl**/){}
 
     private void getTopHeadlinesAustria(/**AppController.ctrl**/){}
@@ -53,11 +45,11 @@ public class Menu {
     private void getAllNewsBitcoin(/**AppController.ctrl**/){}
 
     private static void printExitMessage(){
-        System.out.println("Bye bye! ;-)");
+        System.out.println(EXIT_MESSAGE);
     }
 
     private static void printvalidInputMessage(){
-        System.out.println("Invalid Input, Try again!");
+        System.out.println(INVALID_INPUT_MESSAGE);
     }
 
     private static void printMenu(){
