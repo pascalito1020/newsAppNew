@@ -58,12 +58,6 @@ import static org.junit.jupiter.api.Assertions.*;
 
 
 
-//    @Test
-//    public void setArticlesTest(){
-//        AppController articletest = new AppController();
-//        articletest.setArticles(moc);
-//    }
-
 
     }
 
