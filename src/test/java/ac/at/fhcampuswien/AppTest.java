@@ -8,7 +8,7 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-    public class AppTest {
+    public class AppTest {  // Testing with dummy values
         List<Article> mock = null;
 
 
