@@ -1,5 +1,6 @@
 package ac.at.fhcampuswien;
 
+import java.util.ArrayList;
 import java.util.Objects;
 import java.util.Scanner;
 
@@ -9,16 +10,16 @@ public class Menu {
     private static String INVALID_INPUT_MESSAGE = "Invalid input! :-(";
     private static String EXIT_MESSAGE = "Bye Bye ! :-(";
 
+
     public void start(){
+
 
         String input = null;
         Scanner scanner = new Scanner(System.in);
-
         while(!Objects.equals(input, "q")){
             printMenu();
             input = scanner.next();
             handleInput(input);
-
         }
 
     }
@@ -26,11 +27,11 @@ public class Menu {
     private void handleInput(String input){
 
         if(Objects.equals(input, "a")) {
-            getTopHeadlinesAustria();
+            controller.getTopHeadlinesAustria();
         }else if(Objects.equals(input, "b")) {
-            getAllNewsBitcoin();
+            controller.getAllNewsBitcoin();
         }else if(Objects.equals(input, "y")) {
-            getArticleCount();
+            controller.getArticleCount();
         }else if(Objects.equals(input, "q")){
             printExitMessage();
             System.exit(0);
@@ -38,11 +39,6 @@ public class Menu {
             printvalidInputMessage();
 
     }
-    private void getArticleCount(/**AppController.ctrl**/){}
-
-    private void getTopHeadlinesAustria(/**AppController.ctrl**/){}
-
-    private void getAllNewsBitcoin(/**AppController.ctrl**/){}
 
     private static void printExitMessage(){
         System.out.println(EXIT_MESSAGE);
