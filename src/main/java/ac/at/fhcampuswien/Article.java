@@ -16,8 +16,6 @@ public class Article {
     }
 
     public String getTitle() {
-
-
         return title;
     }
 
