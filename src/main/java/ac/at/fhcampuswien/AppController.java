@@ -2,7 +2,6 @@ package ac.at.fhcampuswien;
 
 
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Pattern;
@@ -10,51 +9,45 @@ import java.util.regex.Pattern;
 public class AppController {
 
 
-    public List<Article> articles = generateMockList();
+    public ArrayList<Article> articles = new ArrayList<>(); // EMPTY
+    public ArrayList<Article> filledList = (ArrayList<Article>) generateMockList();
 
 
-    public AppController() {
+    public void setArticles(List<Article> filledList) {
 
-    }
+        filledList = this.filledList;
 
-
-    public void setArticles(List<Article> articles) {
-
-        articles = this.articles;
-
-    }
-
-    public List<Article> getArticles(){
-        return this.articles;
     }
 
     public int getArticleCount() {
-        System.out.println(articles.size());
-        if(articles == null) {
+
+        System.out.println(filledList.size());
+        if(filledList == null) {
 
             return 0;
         }
         else
-
-        return this.articles.size();
+            return this.filledList.size();
     }
 
     public List<Article> getTopHeadlinesAustria() {
 
-        System.out.println(articles);
+        System.out.println(filledList);
 
         if(articles != null) {
 
             return articles;
-        }else
-            return new ArrayList<>();
 
+        } else {
+            return new ArrayList<>();
+        }
     }
 
     public List<Article> getAllNewsBitcoin() {
-        System.out.println(filterList("bitcoin",articles));
 
-        return filterList("Bitcoin", this.articles);
+        System.out.println(filterList("Bitcoin", filledList));
+
+        return filterList("Bitcoin", this.filledList);
 
     }
 
@@ -80,13 +73,15 @@ public class AppController {
 
         mock.add(new Article("Patrick", "Solebox brennt ab"));
         mock.add(new Article("Ravin", "Solebox brennt immer noch"));
-        mock.add(new Article("Pascal", "Dein Bitcoin-Aquarium brennt"));
+        mock.add(new Article("Pascal", "Dein Aquarium brennt"));
         mock.add(new Article("Christian", "Wecker kaufen, wo"));
-
+        mock.add(new Article("Paul", "Bitcoin"));
 
         return mock;
     }
 
-
-
+    public List<Article> getArticles() {
+        return this.articles;
+    }
 }
+
