@@ -6,13 +6,12 @@ import java.util.Scanner;
 
 public class Menu {
 
-    private AppController controller;
+    private AppController controller = new AppController();
     private static String INVALID_INPUT_MESSAGE = "Invalid input! :-(";
     private static String EXIT_MESSAGE = "Bye Bye ! :-(";
 
 
     public void start(){
-
 
         String input = null;
         Scanner scanner = new Scanner(System.in);
