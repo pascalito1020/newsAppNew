@@ -2,6 +2,7 @@ package ac.at.fhcampuswien;
 
 
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Pattern;
@@ -9,7 +10,8 @@ import java.util.regex.Pattern;
 public class AppController {
 
 
-    private ArrayList<Article> articles = new ArrayList<Article>();
+    public List<Article> articles = generateMockList();
+
 
     public AppController() {
 
@@ -22,28 +24,35 @@ public class AppController {
 
     }
 
+    public List<Article> getArticles(){
+        return this.articles;
+    }
+
     public int getArticleCount() {
-        if(articles != null) {
+        System.out.println(articles.size());
+        if(articles == null) {
 
             return 0;
         }
         else
+
         return this.articles.size();
     }
 
     public List<Article> getTopHeadlinesAustria() {
 
-        System.out.println("TESTSTTSTSTSTSTSTSTSTS");
+        System.out.println(articles);
 
         if(articles != null) {
 
-            return null;
+            return articles;
         }else
-            return new ArrayList<Article>();
+            return new ArrayList<>();
 
     }
 
     public List<Article> getAllNewsBitcoin() {
+        System.out.println(filterList("bitcoin",articles));
 
         return filterList("Bitcoin", this.articles);
 
@@ -71,11 +80,13 @@ public class AppController {
 
         mock.add(new Article("Patrick", "Solebox brennt ab"));
         mock.add(new Article("Ravin", "Solebox brennt immer noch"));
-        mock.add(new Article("Pascal", "Dein Aquarium brennt"));
+        mock.add(new Article("Pascal", "Dein Bitcoin-Aquarium brennt"));
         mock.add(new Article("Christian", "Wecker kaufen, wo"));
 
 
         return mock;
     }
+
+
 
 }
