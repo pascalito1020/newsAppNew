@@ -26,9 +26,11 @@ public class Menu {
     private void handleInput(String input){
 
         if(Objects.equals(input, "a")) {
-            controller.getTopHeadlinesAustria();
+            //controller.getTopHeadlinesAustria();
+            NewsApi.TopNewsAustria();
         }else if(Objects.equals(input, "b")) {
-            controller.getAllNewsBitcoin();
+            //controller.getAllNewsBitcoin();
+            NewsApi.AllNewsBitcoin();
         }else if(Objects.equals(input, "y")) {
             controller.getArticleCount();
         }else if(Objects.equals(input, "q")){
