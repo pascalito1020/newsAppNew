@@ -8,6 +8,7 @@ public class NewsResponse {
 
 
 
+
     public ArrayList<Article> articles = new ArrayList<>();
 
 
