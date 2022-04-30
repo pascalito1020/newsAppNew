@@ -8,8 +8,6 @@ public class NewsResponse {
 
     public ArrayList<Article> articles = new ArrayList<>();
 
-
-
     public String getStatus() {
         return status;
     }
