@@ -6,6 +6,7 @@ public class NewsResponse {
     String status;
     int totalResults;
 
+
     public ArrayList<Article> articles = new ArrayList<>();
 
 
