@@ -7,6 +7,7 @@ public class NewsResponse {
     int totalResults;
 
 
+
     public ArrayList<Article> articles = new ArrayList<>();
 
 
