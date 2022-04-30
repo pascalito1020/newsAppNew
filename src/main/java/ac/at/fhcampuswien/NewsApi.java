@@ -81,6 +81,7 @@ public static void AllNewsBitcoin(){
     } catch (IOException e) {
         e.printStackTrace();
     }
+
 }
 
 }
