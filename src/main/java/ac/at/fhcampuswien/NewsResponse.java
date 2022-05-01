@@ -1,12 +1,18 @@
 package ac.at.fhcampuswien;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class NewsResponse {
-    String status;
-    int totalResults;
+    private final String status;
+    private final int totalResults;
+    private final ArrayList<Article> articles;
 
-    public ArrayList<Article> articles = new ArrayList<>();
+    public NewsResponse(String status, int totalResults, List<Article> articles) {
+        this.status = status;
+        this.totalResults = totalResults;
+        this.articles = (ArrayList<Article>) articles;
+    }
 
     public String getStatus() {
         return status;
@@ -19,4 +25,14 @@ public class NewsResponse {
     public ArrayList<Article> getArticles() {
         return articles;
     }
+
+    @Override
+    public String toString() {
+        return "NewsResponse{" +
+                "status='" + status + '\'' +
+                ", totalResults=" + totalResults +
+                ", articles=" + articles +
+                '}';
+    }
+
 }
