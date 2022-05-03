@@ -1,86 +1,39 @@
 package ac.at.fhcampuswien;
 
-import java.io.BufferedReader;
+import com.google.gson.Gson;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
+
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.net.HttpURLConnection;
 
 public class NewsApi {
-    private static HttpURLConnection connection;
 
-public static void TopNewsAustria(){
+    public static NewsResponse run(String url) throws IOException {
 
-    BufferedReader reader;
-    String line;
-    StringBuffer responseContent= new StringBuffer();
-        try {
-            URL url = new URL("https://newsapi.org/v2/top-headlines?q=corona&apiKey=e809c2bfc1c7416887eb0c289ab6c540&country=at");
-            connection = (HttpURLConnection) url.openConnection();
+        Gson gson = new Gson();
+        OkHttpClient client = new OkHttpClient();
+        Request request = new Request.Builder()
+                .url(url)
+                .build();
 
-            connection.setRequestMethod("GET");
-            connection.setConnectTimeout(5000);
-            connection.setReadTimeout(5000);
+        try (Response response = client.newCall(request).execute()) {
 
-            int status = connection.getResponseCode();
-            //System.out.println(status);
-            if(status > 299){
-                reader = new BufferedReader(new InputStreamReader(connection.getErrorStream()));
-                while((line = reader.readLine())!=null){
-                    responseContent.append(line);
-                }
-                reader.close();
-            }else{
-                reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
-                while((line = reader.readLine())!=null){
-                    responseContent.append(line);
-                }
-                reader.close();
-            }
-            System.out.println(responseContent.toString());
+            String json = response.body().string();
+            return gson.fromJson(json, NewsResponse.class);
 
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
+        }catch (IOException e){
+
+            throw new RuntimeException(e);
         }
-}
-
-public static void AllNewsBitcoin(){
-    BufferedReader reader;
-    String line;
-    StringBuffer responseContent= new StringBuffer();
-    try {
-        URL url = new URL("https://newsapi.org/v2/everything?q=bitcoin&apiKey=e809c2bfc1c7416887eb0c289ab6c540");
-        connection = (HttpURLConnection) url.openConnection();
-
-        connection.setRequestMethod("GET");
-        connection.setConnectTimeout(5000);
-        connection.setReadTimeout(5000);
-
-        int status = connection.getResponseCode();
-        //System.out.println(status);
-        if(status > 299){
-            reader = new BufferedReader(new InputStreamReader(connection.getErrorStream()));
-            while((line = reader.readLine())!=null){
-                responseContent.append(line);
-            }
-            reader.close();
-        }else{
-            reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
-            while((line = reader.readLine())!=null){
-                responseContent.append(line);
-            }
-            reader.close();
-        }
-        System.out.println(responseContent.toString());
-
-    } catch (MalformedURLException e) {
-        e.printStackTrace();
-    } catch (IOException e) {
-        e.printStackTrace();
     }
-  }
+
+
+
+
+
+
+
+
 }
 

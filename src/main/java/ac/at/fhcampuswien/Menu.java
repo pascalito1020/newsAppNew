@@ -10,7 +10,6 @@ public class Menu {
     private static String INVALID_INPUT_MESSAGE = "Invalid input! :-(";
     private static String EXIT_MESSAGE = "Bye Bye ! :-(";
 
-
     public void start(){
 
         String input = null;
@@ -26,13 +25,15 @@ public class Menu {
     private void handleInput(String input){
 
         if(Objects.equals(input, "a")) {
-            //controller.getTopHeadlinesAustria();
-            NewsApi.TopNewsAustria();
+            controller.getTopHeadlinesAustria();
+
         }else if(Objects.equals(input, "b")) {
-            //controller.getAllNewsBitcoin();
-            NewsApi.AllNewsBitcoin();
+            controller.getAllNewsBitcoin();
+
         }else if(Objects.equals(input, "y")) {
-            controller.getArticleCount();
+
+
+
         }else if(Objects.equals(input, "q")){
             printExitMessage();
             System.exit(0);

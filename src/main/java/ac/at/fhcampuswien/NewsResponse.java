@@ -4,9 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class NewsResponse {
-    private final String status;
-    private final int totalResults;
-    private final ArrayList<Article> articles;
+
+    String status;
+    int totalResults;
+    ArrayList<Article> articles;
 
     public NewsResponse(String status, int totalResults, List<Article> articles) {
         this.status = status;
@@ -14,17 +15,15 @@ public class NewsResponse {
         this.articles = (ArrayList<Article>) articles;
     }
 
-    public String getStatus() {
-        return status;
+
+    public int articleCount() {
+        return  articles.size();
     }
 
-    public int getTotalResults() {
-        return totalResults;
+    public String print(){
+        return this.status;
     }
 
-    public ArrayList<Article> getArticles() {
-        return articles;
-    }
 
     @Override
     public String toString() {
@@ -33,8 +32,6 @@ public class NewsResponse {
                 ", totalResults=" + totalResults +
                 ", articles=" + articles +
                 '}';
-
-
 
     }
 
