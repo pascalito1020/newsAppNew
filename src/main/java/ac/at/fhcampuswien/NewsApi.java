@@ -10,6 +10,9 @@ import java.io.IOException;
 
 public class NewsApi {
 
+    final static String T_Headline = "https://newsapi.org/v2/top-headlines?apiKey=e809c2bfc1c7416887eb0c289ab6c540";
+    final static String ALL_News = "https://newsapi.org/v2/everything?apiKey=e809c2bfc1c7416887eb0c289ab6c540";
+
     public static NewsResponse run(String url) throws IOException {
 
         Gson gson = new Gson();
@@ -23,14 +26,18 @@ public class NewsApi {
             String json = response.body().string();
             return gson.fromJson(json, NewsResponse.class);
 
-        }catch (IOException e){
+        } catch (IOException e) {
             System.out.println("Fehler");
             throw new RuntimeException(e);
         }
     }
 
-
-
+    public static NewsResponse query1(String g) throws IOException {
+            return run(T_Headline + "&q=" + g);
+    }
 
 }
+
+
+
 

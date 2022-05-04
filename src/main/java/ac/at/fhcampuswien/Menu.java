@@ -28,23 +28,25 @@ public class Menu {
         Scanner scanner2 = new Scanner(System.in);
 
         if(Objects.equals(input, "a")) {
+
             System.out.println("Which topic are you interested in?");
             String input2 = scanner2.next();
-            controller.setUrl(input2);
-
-            controller.getTopHeadlinesAustria();
+            controller.getTopHeadlinesAustria(input2);
 
         }else if(Objects.equals(input, "b")) {
             controller.getAllNewsBitcoin();
 
         }else if(Objects.equals(input, "y")) {
-            controller.articleCount();;
+
+            System.out.println("Which articles do you want to count?");
+            String input3 = scanner2.next();
+            controller.articleCount(input3);
 
         }else if(Objects.equals(input, "q")){
             printExitMessage();
             System.exit(0);
         }else
-            printvalidInputMessage();
+            printValidInputMessage();
 
     }
 
@@ -52,7 +54,7 @@ public class Menu {
         System.out.println(EXIT_MESSAGE);
     }
 
-    private static void printvalidInputMessage(){
+    private static void printValidInputMessage(){
         System.out.println(INVALID_INPUT_MESSAGE);
     }
 
