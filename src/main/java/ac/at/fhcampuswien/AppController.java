@@ -13,6 +13,7 @@ public class AppController {
             System.out.println("Fehler");
         }
     }
+
     public void getAllNewsBitcoin() {
 
         try {
@@ -27,7 +28,7 @@ public class AppController {
             NewsResponse response = NewsApi.query1(g);
             ArrayList<Article> articles = response.getArticles();
             int count = articles.size();
-            System.out.println("Article Size:"+count);
+            System.out.println("Article Size: "+count);
         }catch(IOException e){
             System.out.println("Fehler");
         }

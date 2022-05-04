@@ -22,7 +22,6 @@ public class Menu {
 
     }
 
-
     private void handleInput(String input){
 
         Scanner scanner2 = new Scanner(System.in);
@@ -49,7 +48,6 @@ public class Menu {
             printValidInputMessage();
 
     }
-
     private static void printExitMessage(){
         System.out.println(EXIT_MESSAGE);
     }

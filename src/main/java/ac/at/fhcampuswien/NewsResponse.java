@@ -28,7 +28,5 @@ public class NewsResponse {
                 ", totalResults=" + totalResults +
                 ", articles=" + articles +
                 '}';
-
     }
-
 }
