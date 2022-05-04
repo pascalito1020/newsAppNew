@@ -31,8 +31,7 @@ public class Menu {
             controller.getAllNewsBitcoin();
 
         }else if(Objects.equals(input, "y")) {
-
-            controller.articleCount();
+            controller.articleCount();;
 
         }else if(Objects.equals(input, "q")){
             printExitMessage();

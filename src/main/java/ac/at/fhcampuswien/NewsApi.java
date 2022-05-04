@@ -23,7 +23,7 @@ public class NewsApi {
             return gson.fromJson(json, NewsResponse.class);
 
         }catch (IOException e){
-
+            System.out.println("Fehler");
             throw new RuntimeException(e);
         }
     }
