@@ -31,6 +31,7 @@ package ac.at.fhcampuswien;
                 "URL: " + url + "\n" +
                 "Image Link: " + urlToImage + "\n" +
                 "published at: " + publishedAt + "\n" +
-                "Content: " + content + "\n";
+                "Content: " + content + "\n" +
+                "ID: " + SubClassIdAndName;
     }
 }

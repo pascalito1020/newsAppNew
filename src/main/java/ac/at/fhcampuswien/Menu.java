@@ -22,9 +22,16 @@ public class Menu {
 
     }
 
+
     private void handleInput(String input){
 
+        Scanner scanner2 = new Scanner(System.in);
+
         if(Objects.equals(input, "a")) {
+            System.out.println("Which topic are you interested in?");
+            String input2 = scanner2.next();
+            controller.setUrl(input2);
+
             controller.getTopHeadlinesAustria();
 
         }else if(Objects.equals(input, "b")) {

@@ -5,6 +5,7 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
+import javax.print.DocFlavor;
 import java.io.IOException;
 
 public class NewsApi {
@@ -27,10 +28,6 @@ public class NewsApi {
             throw new RuntimeException(e);
         }
     }
-
-
-
-
 
 
 
