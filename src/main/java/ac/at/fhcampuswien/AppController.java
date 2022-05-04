@@ -28,7 +28,7 @@ public class AppController {
             NewsResponse response = NewsApi.query1(g);
             ArrayList<Article> articles = response.getArticles();
             int count = articles.size();
-            System.out.println("Article Size: "+count);
+            System.out.println("Search for: " + g + " Article size: " + count);
         }catch(IOException e){
             System.out.println("Fehler");
         }

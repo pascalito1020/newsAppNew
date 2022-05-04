@@ -48,6 +48,7 @@ public class Menu {
             printValidInputMessage();
 
     }
+
     private static void printExitMessage(){
         System.out.println(EXIT_MESSAGE);
     }
