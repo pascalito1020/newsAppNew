@@ -5,7 +5,6 @@ import java.util.ArrayList;
 
 public class AppController {
 
-
     public void getTopHeadlinesAustria(String g) {
 
         try {
@@ -24,16 +23,11 @@ public class AppController {
     }
 
     public void articleCount(String g) {
-
-        String URL = "https://newsapi.org/v2/everything?apiKey=e809c2bfc1c7416887eb0c289ab6c540";
-
         try{
-
-            NewsResponse response = NewsApi.run(URL + "&q=" + g);
+            NewsResponse response = NewsApi.query1(g);
             ArrayList<Article> articles = response.getArticles();
             int count = articles.size();
             System.out.println("Article Size:"+count);
-
         }catch(IOException e){
             System.out.println("Fehler");
         }
