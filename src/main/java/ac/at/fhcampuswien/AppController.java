@@ -24,6 +24,15 @@ public class AppController {
         }
     }
 
+    public void articleCount() {
+
+        NewsResponse count = new NewsResponse();
+
+        System.out.println(count.articleCount());
+
+
+    }
+
 
 
 

@@ -32,7 +32,7 @@ public class Menu {
 
         }else if(Objects.equals(input, "y")) {
 
-
+            controller.articleCount();
 
         }else if(Objects.equals(input, "q")){
             printExitMessage();

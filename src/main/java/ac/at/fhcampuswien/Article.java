@@ -11,7 +11,7 @@ package ac.at.fhcampuswien;
     private String content;
     private String SubClassIdAndName;
 
-  /**  public Article(String author, String title, String description, String url, String urlToImage, String publishedAt, String content) {
+   public Article(String author, String title, String description, String url, String urlToImage, String publishedAt, String content, String SubClassIdAndName) {
        this.author = author;
        this.title = title;
        this.description = description;
@@ -19,7 +19,8 @@ package ac.at.fhcampuswien;
        this.urlToImage = urlToImage;
        this.publishedAt = publishedAt;
        this.content = content;
-   } */
+       this.SubClassIdAndName = SubClassIdAndName;
+   }
 
     @Override
     public String toString() {
